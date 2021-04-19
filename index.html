@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Meme Generator</title>
+</head>
+<body onload="init()">
+    
+    <div class="canvas-container">
+        <canvas id="my-canvas" height="450" width="450"></canvas>
+    </div>
+
+    <input type="text" class="text-input" onkeyup="renderUserText()">Your text here</input>
+
+    <div class="gallery"></div>
+
+<script src="js/memeService.js"></script>    
+<script src="js/controller.js"></script>    
+</body>
+</html>
