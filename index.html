@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,17 +8,34 @@
     <link rel="stylesheet" href="style/style.css">
     <title>Meme Generator</title>
 </head>
+
 <body onload="init()">
-    
-    <div class="canvas-container">
-        <canvas id="my-canvas" height="450" width="450"></canvas>
+    <div class="grid">
+
+        <div class="navbar">The Memer</div>
+
+        <div class="editor-container">
+            <div class="buttons-container">
+                <div class="input-title">Your Text Here</div>
+                <input type="text" class="text-input" onkeyup="renderUserText()"></input>
+                <button class="bigger" onclick="changeSize('big')">+</button>
+                <button class="smaller" onclick="changeSize('small')">-</button>
+                <button class="higher" onclick="changePosY('high')">⬆</button>
+                <button class="lower" onclick="changePosY('low')">⬇</button>
+                <button class="add" onclick="addLine()">Add Line</button>
+                <button class="switch" onclick="switchLine()">Switch Line</button>
+            </div>
+            <div class="canvas-container">
+                <canvas id="my-canvas" height="450" width="450"></canvas>
+            </div>
+        </div>
+
+        <div class="gallery"></div>
     </div>
 
-    <input type="text" class="text-input" onkeyup="renderUserText()">Your text here</input>
 
-    <div class="gallery"></div>
-
-<script src="js/memeService.js"></script>    
-<script src="js/controller.js"></script>    
+    <script src="js/memeService.js"></script>
+    <script src="js/controller.js"></script>
 </body>
+
 </html>

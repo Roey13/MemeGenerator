@@ -1,13 +1,76 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0
 }
 
-canvas{
+canvas {
     display: block;
     margin: 0 auto;
     border: 1px solid black;
+}
+
+.editor-container {
+    display: none;
+}
+
+.navbar {
+    background-color: #ff7f00;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding: 40px;
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+.gallery {
+    grid-area: main;
+    display: grid;
+    grid-template-rows: repeat(3, 16vw);
+    grid-template-columns: repeat(6, 16vw);
+    grid-gap: 0.5rem;
+}
+
+img {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    border: solid 5px black;
+    padding-top: 0.5rem;
+}
+
+.editor-container{
+    flex-direction: row-reverse;
+    justify-content: center;
+	align-items: center;
+}
+
+.buttons-container{
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	align-items: center;
+}
+
+.text-input{
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	align-items: center;    
+}
+
+.input-title{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+button{
+    margin: 10px;
 }
