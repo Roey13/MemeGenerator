@@ -27,6 +27,16 @@ function renderUserText() {
 }
 
 function renderSelectedImg(id) {
+    gMeme.lines = [{
+        txt: 'Your Text Here',
+        size: 40,
+        align: 'center',
+        fillColor: 'white',
+        strokeColor: 'black',
+        posX: 225,
+        posY: 50
+    }]
+
     var elEditor = document.querySelector('.editor-container')
     var elGallery = document.querySelector('.gallery')
     var elHomeBtn = document.querySelector('.main-btn')
@@ -44,7 +54,7 @@ function renderGallery() {
     elHomeBtn.style.display = 'none'
     var strHTML = ''
     gImgs.forEach(function (img, idx) {
-        strHTML += `<img src="${gImgs[idx].url}" onclick="renderSelectedImg(${idx+1})">`
+        strHTML += `<img class="gall-img" src="${gImgs[idx].url}" onclick="renderSelectedImg(${idx+1})">`
     })
     elGallery.innerHTML = strHTML
 }
@@ -87,6 +97,7 @@ function addLine() {
 
 function switchLine() {
     var lines = gMeme.lines
+    if (lines.length === 1) return
     if (gLineIdx === lines.length - 1) gLineIdx = 0;
     else(gLineIdx++);
     currLine()
@@ -131,7 +142,7 @@ function renderSaved() {
     }
 }
 
-function renderHome(){
+function renderHome() {
     var elHomeBtn = document.querySelector('.main-btn')
     var elMemeLib = document.querySelector('.meme-lib');
     var elGallery = document.querySelector('.gallery')
@@ -144,11 +155,10 @@ function renderHome(){
     elSavedBtn.style.display = 'inline'
 }
 
-function removeRed(){
+function removeRed() {
     var lines = gMeme.lines
     lines.forEach(line => {
-    line.strokeColor = 'black' 
+        line.strokeColor = 'black'
     })
     renderCanvas(gIdx)
 }
-

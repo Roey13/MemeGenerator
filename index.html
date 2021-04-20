@@ -13,7 +13,7 @@
     <div class="grid">
 
         <div class="navbar-container">
-            <h1 class="nav-title">The Memer</h1>
+            <img class="logo" src="design/LOGO.png"></img>
             <div class="nav-btns-container">
                 <button class="main-btn btn" onclick="renderHome()">Back to Main Menu</button>
                 <button class="memes-btn btn" onclick="renderSaved()">Your Meme Gallery</button>
@@ -22,18 +22,15 @@
 
         <div class="editor-container">
             <div class="buttons-container">
-                <div class="input-container">
-                    <div class="input-title">Your Text Here</div>
-                    <input type="text" class="text-input" onkeyup="renderUserText()"></input>
-                </div>
-                <button class="bigger" onclick="changeSize('big')">+</button>
-                <button class="smaller" onclick="changeSize('small')">-</button>
-                <button class="higher" onclick="changePosY('high')">⬆</button>
-                <button class="lower" onclick="changePosY('low')">⬇</button>
-                <button class="add" onclick="addLine()">Add Line</button>
-                <button class="switch" onclick="switchLine()">Switch Line</button>
-                <button class="save" onclick="saveMeme()">Save Meme to Gallery</button>
-                <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download Meme</a>
+                <input type="text" class="text-input" onkeyup="renderUserText()"></input>
+                <button class="higher" onclick="changePosY('high')"><i class="fas fa-caret-square-up"></i></button>
+                <button class="bigger" onclick="changeSize('big')"><i class="fas fa-search-plus"></i></button>
+                <button class="lower" onclick="changePosY('low')"><i class="fas fa-caret-square-down"></i></button>
+                <button class="smaller" onclick="changeSize('small')"><i class="fas fa-search-minus"></i></button>
+                <button class="add" onclick="addLine()"><i class="fas fa-plus"></i></button>
+                <button class="switch" onclick="switchLine()"><i class="fas fa-exchange-alt"></i></button>
+                <button class="save" onclick="saveMeme()"><i class="fas fa-save"></i></button>
+                <button class="download"><a href="#" onclick="downloadImg(this)" download="my-img.jpg"><i class="fas fa-download"></i></a></button>
             </div>
             <div class="canvas-container">
                 <canvas id="my-canvas" height="450" width="450"></canvas>
@@ -44,7 +41,7 @@
 
         <div class="meme-lib"></div>
     </div>
-
+    <script src="https://kit.fontawesome.com/a688df6c80.js" crossorigin="anonymous"></script>
     <script src="js/storageService.js"></script>
     <script src="js/memeService.js"></script>
     <script src="js/controller.js"></script>
