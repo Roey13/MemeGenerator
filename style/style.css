@@ -48,11 +48,16 @@ img {
 .buttons-container {
     margin: 30px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    width: 90vw;
+}
+
+.input-container {
+    display: flex;
 }
 
 .text-input {
-    margin-right: 30px;
+    margin-left: 65px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -67,7 +72,7 @@ img {
 
 button {
     margin: 10px;
-    font-size: 25px;
+    font-size: 20px;
 
 }
 
