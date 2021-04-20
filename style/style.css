@@ -12,6 +12,14 @@ canvas {
     border: 1px solid black;
 }
 
+button:hover{
+cursor: pointer;
+}
+
+.main-btn{
+    display: none;
+}
+
 .editor-container {
     display: none;
     flex-direction: column-reverse;
@@ -21,9 +29,10 @@ canvas {
 
 .navbar-container {
     background-color: #ff7f00;
-    padding: 40px;
-    margin-bottom: 30px;
+    padding: 2.5rem;
+    margin-bottom: 1.875rem;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
@@ -32,11 +41,11 @@ canvas {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    font-size: 50px;
+    font-size: 3.125rem;
 }
 
 .btn {
-    height: 40px;
+    height: 2.5rem;
 }
 
 .gallery {
@@ -56,7 +65,7 @@ img {
 }
 
 .buttons-container {
-    margin: 30px;
+    margin: 1.875rem;
     display: flex;
     flex-direction: column;
 }
@@ -66,7 +75,7 @@ img {
 }
 
 .text-input {
-    margin-left: 65px;
+    margin-left: 4.0625rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -75,18 +84,17 @@ img {
 
 .input-title {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: bold;
 }
 
 .buttons-container button {
-    margin: 10px;
-    font-size: 20px;
+    margin: 0.625rem;
+    font-size: 1.25rem;
 }
 
 .meme-lib {
     display: none;
-    grid-template-columns: repeat(3, 32.2vw);
     grid-gap: 0.5rem;
 }
 
@@ -95,15 +103,25 @@ img {
     width: 100%;
 }
 
+.meme-lib{
+	justify-content: center;
+}
+
 @media screen and (min-width: 780px) {
-    .navbar {
+    .navbar-container {
         background-color: #ff7f00;
-        color: white;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: bold;
-        padding: 40px;
-        font-size: 50px;
-        margin-bottom: 30px;
+        padding: 2.5rem;
+        margin-bottom: 1.875rem;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+
+    .meme-lib {
+        display: none;
+        grid-template-columns: repeat(3, 32.2vw);
+        grid-gap: 0.5rem;
     }
 
     .gallery {
@@ -113,24 +131,14 @@ img {
         grid-gap: 0.5rem;
     }
 
-    img {
-        display: flex;
-        height: 100%;
-        width: 100%;
-        justify-content: center;
-        border: solid 5px black;
-        padding-top: 0.5rem;
-    }
-
     .editor-container {
         flex-direction: row-reverse;
         justify-content: center;
         align-items: flex-start;
-        /* height: 50px; */
     }
 
     .buttons-container {
-        margin: 30px;
+        margin: 1.875rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -138,7 +146,7 @@ img {
     }
 
     .text-input {
-        margin-bottom: 30px;
+        margin-bottom: 1.875rem;;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -147,28 +155,33 @@ img {
 
     .input-title {
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 25px;
+        font-size: 1.875rem;;
         font-weight: bold;
     }
 
     button {
-        margin: 10px;
+        margin: 1.875rem;;
     }
-
 }
 
 
 
 @media screen and (min-width: 1024px) {
-    .navbar {
+    .navbar-container {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
         background-color: #ff7f00;
-        color: white;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: bold;
-        padding: 40px;
-        font-size: 50px;
-        margin-bottom: 30px;
+        padding: 2.5rem;
+        margin-bottom: 1.875rem;
     }
+
+    .meme-lib {
+        display: none;
+        grid-template-columns: repeat(3, 32.2vw);
+        grid-gap: 0.5rem;
+    }
+
 
     .gallery {
         display: grid;
@@ -177,15 +190,6 @@ img {
         grid-gap: 0.5rem;
     }
 
-    img {
-        display: flex;
-        height: 100%;
-        width: 100%;
-        justify-content: center;
-        border: solid 5px black;
-        padding-top: 0.5rem;
-    }
-
     .editor-container {
         flex-direction: row-reverse;
         justify-content: center;
@@ -194,7 +198,7 @@ img {
     }
 
     .buttons-container {
-        margin: 30px;
+        margin: 1.875rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -202,7 +206,7 @@ img {
     }
 
     .text-input {
-        margin-bottom: 30px;
+        margin-bottom: 1.875rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -211,12 +215,12 @@ img {
 
     .input-title {
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 25px;
+        font-size: 1.5625rem;
         font-weight: bold;
     }
 
     button {
-        margin: 10px;
+        margin: 0.625rem;
     }
 
 }

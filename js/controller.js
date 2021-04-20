@@ -29,6 +29,8 @@ function renderUserText() {
 function renderSelectedImg(id) {
     var elEditor = document.querySelector('.editor-container')
     var elGallery = document.querySelector('.gallery')
+    var elHomeBtn = document.querySelector('.main-btn')
+    elHomeBtn.style.display = 'inline'
     elEditor.style.display = 'flex'
     elGallery.style.display = 'none'
     gIdx = id;
@@ -37,7 +39,9 @@ function renderSelectedImg(id) {
 }
 
 function renderGallery() {
+    var elHomeBtn = document.querySelector('.main-btn')
     var elGallery = document.querySelector('.gallery')
+    elHomeBtn.style.display = 'none'
     var strHTML = ''
     gImgs.forEach(function (img, idx) {
         strHTML += `<img src="${gImgs[idx].url}" onclick="renderSelectedImg(${idx+1})">`
@@ -89,37 +93,62 @@ function switchLine() {
 }
 
 function downloadImg(elLink) {
+    removeRed();
     var imgContent = gCanvas.toDataURL('image/jpeg')
     elLink.href = imgContent
 }
 
 function saveMeme() {
-    var val = gCanvas.toDataURL();
-    gSavedMemes.push(val)
-    saveToStorage(Key, gSavedMemes)
+    removeRed()
+    setTimeout(function () {
+        var val = gCanvas.toDataURL();
+        gSavedMemes.push(val)
+        saveToStorage(Key, gSavedMemes), 100
+    })
 }
 
 function renderSaved() {
-    var memeLib = document.querySelector('.meme-lib');
+    var elMemeLib = document.querySelector('.meme-lib');
     var elGallery = document.querySelector('.gallery')
     var elEditor = document.querySelector('.editor-container')
+    var elHomeBtn = document.querySelector('.main-btn')
+    var elSavedBtn = document.querySelector('.memes-btn')
     elEditor.style.display = 'none'
     elGallery.style.display = 'none'
-    memeLib.style.display = 'grid'
+    elHomeBtn.style.display = 'inline'
+    elSavedBtn.style.display = 'none'
     var images = loadFromStorage('memes')
-    var strHTML = ``
-    images.forEach(img => {
-        strHTML += `<img class="lib-img" src="${img}"></img>`
-    })
-    memeLib.innerHTML = strHTML
+    if (gSavedMemes.length > 0) {
+        elMemeLib.style.display = 'grid'
+        var strHTML = ``
+        images.forEach(img => {
+            strHTML += `<img class="lib-img" src="${img}"></img>`
+        })
+        elMemeLib.innerHTML = strHTML
+    } else {
+        elMemeLib.style.display = 'flex'
+        elMemeLib.innerHTML = `<h1 class="empty-msg">You Have No Saved Memes</h1>`
+    }
 }
 
 function renderHome(){
-    var memeLib = document.querySelector('.meme-lib');
+    var elHomeBtn = document.querySelector('.main-btn')
+    var elMemeLib = document.querySelector('.meme-lib');
     var elGallery = document.querySelector('.gallery')
+    var elSavedBtn = document.querySelector('.memes-btn')
     var elEditor = document.querySelector('.editor-container')
     elEditor.style.display = 'none'
     elGallery.style.display = 'grid'
-    memeLib.style.display = 'none'
-
+    elMemeLib.style.display = 'none'
+    elHomeBtn.style.display = 'none'
+    elSavedBtn.style.display = 'inline'
 }
+
+function removeRed(){
+    var lines = gMeme.lines
+    lines.forEach(line => {
+    line.strokeColor = 'black' 
+    })
+    renderCanvas(gIdx)
+}
+

@@ -59,6 +59,6 @@ function currLine(){
       if (lines[gLineIdx] === line) line.strokeColor = 'red'
       else line.strokeColor = 'black' 
     })
-    drawText()
+    renderCanvas(gIdx)
 }
 
