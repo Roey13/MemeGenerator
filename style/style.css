@@ -49,7 +49,6 @@ img {
     margin: 30px;
     display: flex;
     flex-direction: column;
-    width: 90vw;
 }
 
 .input-container {
@@ -66,7 +65,7 @@ img {
 
 .input-title {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -104,9 +103,10 @@ button {
     }
 
     .editor-container {
-        flex-direction: row-reverse;
+    	flex-direction: row-reverse;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
+        /* height: 50px; */
     }
 
     .buttons-container {
@@ -170,6 +170,7 @@ button {
         flex-direction: row-reverse;
         justify-content: center;
         align-items: center;
+        height: 100%;
     }
 
     .buttons-container {
