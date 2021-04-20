@@ -14,19 +14,29 @@ canvas {
 
 .editor-container {
     display: none;
-	flex-direction: column-reverse;
+    flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
 }
 
-.navbar {
+.navbar-container {
     background-color: #ff7f00;
+    padding: 40px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-title {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    padding: 40px;
     font-size: 50px;
-    margin-bottom: 30px;
+}
+
+.btn {
+    height: 40px;
 }
 
 .gallery {
@@ -69,10 +79,20 @@ img {
     font-weight: bold;
 }
 
-button {
+.buttons-container button {
     margin: 10px;
     font-size: 20px;
+}
 
+.meme-lib {
+    display: none;
+    grid-template-columns: repeat(3, 32.2vw);
+    grid-gap: 0.5rem;
+}
+
+.lib-img {
+    height: 100%;
+    width: 100%;
 }
 
 @media screen and (min-width: 780px) {
@@ -103,7 +123,7 @@ button {
     }
 
     .editor-container {
-    	flex-direction: row-reverse;
+        flex-direction: row-reverse;
         justify-content: center;
         align-items: flex-start;
         /* height: 50px; */
@@ -200,4 +220,3 @@ button {
     }
 
 }
-

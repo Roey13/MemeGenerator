@@ -12,7 +12,11 @@
 <body onload="init()">
     <div class="grid">
 
-        <div class="navbar">The Memer</div>
+        <div class="navbar-container">
+            <h1 class="nav-title">The Memer</h1>
+            <button class="memes-btn btn" onclick="renderSaved()">Your Meme Gallery</button>
+            <button class="main-btn btn" onclick="renderHome()">Back to Main Menu</button>
+        </div>
 
         <div class="editor-container">
             <div class="buttons-container">
@@ -26,6 +30,8 @@
                 <button class="lower" onclick="changePosY('low')">⬇</button>
                 <button class="add" onclick="addLine()">Add Line</button>
                 <button class="switch" onclick="switchLine()">Switch Line</button>
+                <button class="save" onclick="saveMeme()">Save Meme to Gallery</button>
+                <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
             </div>
             <div class="canvas-container">
                 <canvas id="my-canvas" height="450" width="450"></canvas>
@@ -33,9 +39,11 @@
         </div>
 
         <div class="gallery"></div>
+
+        <div class="meme-lib"></div>
     </div>
 
-
+    <script src="js/storageService.js"></script>
     <script src="js/memeService.js"></script>
     <script src="js/controller.js"></script>
 </body>

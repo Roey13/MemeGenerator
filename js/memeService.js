@@ -1,5 +1,5 @@
 'use strict'
-
+var gSavedMemes = []
 var gCanvas;
 var gCtx;
 var gImgs = getImgs()
@@ -61,3 +61,4 @@ function currLine(){
     })
     drawText()
 }
+

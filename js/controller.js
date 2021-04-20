@@ -4,6 +4,12 @@ function init() {
     gCanvas = document.querySelector('#my-canvas');
     gCtx = gCanvas.getContext('2d');
     renderGallery()
+    updateSaved()
+}
+
+function updateSaved() {
+    if (!loadFromStorage('memes')) saveToStorage('memes', []);
+    else gSavedMemes = loadFromStorage('memes')
 }
 
 function renderCanvas(id) {
@@ -33,8 +39,8 @@ function renderSelectedImg(id) {
 function renderGallery() {
     var elGallery = document.querySelector('.gallery')
     var strHTML = ''
-    gImgs.forEach(function (img, idx){
-    strHTML += `<img src="${gImgs[idx].url}" onclick="renderSelectedImg(${idx+1})">`
+    gImgs.forEach(function (img, idx) {
+        strHTML += `<img src="${gImgs[idx].url}" onclick="renderSelectedImg(${idx+1})">`
     })
     elGallery.innerHTML = strHTML
 }
@@ -77,7 +83,43 @@ function addLine() {
 
 function switchLine() {
     var lines = gMeme.lines
-    if (gLineIdx === lines.length-1) gLineIdx = 0;
-    else (gLineIdx++);
+    if (gLineIdx === lines.length - 1) gLineIdx = 0;
+    else(gLineIdx++);
     currLine()
+}
+
+function downloadImg(elLink) {
+    var imgContent = gCanvas.toDataURL('image/jpeg')
+    elLink.href = imgContent
+}
+
+function saveMeme() {
+    var val = gCanvas.toDataURL();
+    gSavedMemes.push(val)
+    saveToStorage(Key, gSavedMemes)
+}
+
+function renderSaved() {
+    var memeLib = document.querySelector('.meme-lib');
+    var elGallery = document.querySelector('.gallery')
+    var elEditor = document.querySelector('.editor-container')
+    elEditor.style.display = 'none'
+    elGallery.style.display = 'none'
+    memeLib.style.display = 'grid'
+    var images = loadFromStorage('memes')
+    var strHTML = ``
+    images.forEach(img => {
+        strHTML += `<img class="lib-img" src="${img}"></img>`
+    })
+    memeLib.innerHTML = strHTML
+}
+
+function renderHome(){
+    var memeLib = document.querySelector('.meme-lib');
+    var elGallery = document.querySelector('.gallery')
+    var elEditor = document.querySelector('.editor-container')
+    elEditor.style.display = 'none'
+    elGallery.style.display = 'grid'
+    memeLib.style.display = 'none'
+
 }
