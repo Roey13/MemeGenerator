@@ -5,6 +5,8 @@ function init() {
     gCtx = gCanvas.getContext('2d');
     renderGallery()
     updateSaved()
+    addMouseListeners()
+    addTouchListeners()
 }
 
 function updateSaved() {
@@ -161,4 +163,21 @@ function removeRed() {
         line.strokeColor = 'black'
     })
     renderCanvas(gIdx)
+}
+
+function removeLine() {
+    var lines = gMeme.lines
+
+    if (lines.length === 1) return
+
+    if (lines.length === 2){
+        lines.splice(-1, 1)
+        removeRed()
+    }
+
+    if (lines.length > 1){
+        lines.splice(-1, 1)
+        renderCanvas(gIdx)
+    }
+
 }

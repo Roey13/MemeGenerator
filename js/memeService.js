@@ -14,7 +14,8 @@ var gMeme = {
             fillColor: 'white',
             strokeColor: 'black',
             posX: 225,
-            posY: 50
+            posY: 50,
+            isDragging: false
         }
     ]
 }
@@ -40,8 +41,8 @@ function drawText() {
         gCtx.fillStyle = line.fillColor
         gCtx.font = line.size + 'px Impact'
         gCtx.textAlign = line.align
-        gCtx.fillText(text, 225, line.posY)
-        gCtx.strokeText(text, 225, line.posY)
+        gCtx.fillText(text, line.posX, line.posY)
+        gCtx.strokeText(text, line.posX, line.posY)
     })
 }
 
