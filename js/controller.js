@@ -38,6 +38,7 @@ function renderSelectedImg(id) {
         posX: 225,
         posY: 50
     }]
+    renderCanvas(gImgIdx)
 
     var elEditor = document.querySelector('.editor-container')
     var elGallery = document.querySelector('.gallery')

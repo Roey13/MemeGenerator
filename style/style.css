@@ -58,13 +58,14 @@ button:hover {
     display: flex;
 }
 
-.lib-img {
+.lib-img,
+.gall-img {
     display: flex;
     height: 100%;
     width: 100%;
     justify-content: center;
-    border: solid 0.3125rem black;
-    padding-top: 0.5rem;
+    border: solid 0.3125rem rgb(0, 0, 0);
+    border-radius: 3.125rem;
 }
 
 .input-container {
@@ -236,13 +237,8 @@ button:hover {
 
 .gallery,
 .meme-lib {
-    justify-content: center;
-}
-
-.gall-img,
-.lib-img {
-    border: solid 0.3125rem rgb(0, 0, 0);
-    border-radius: 3.125rem;
+    display: grid;
+    grid-gap: 0.5rem;
 }
 
 .modal {
@@ -313,7 +309,6 @@ button:hover {
         height: 100%;
         width: 100%;
         justify-content: center;
-        padding-top: 0.5rem;
     }
 
     .navbar-container {
@@ -368,7 +363,7 @@ button:hover {
         margin-top: 10%;
         margin-left: 30%;
     }
-    
+
 }
 
 
@@ -386,7 +381,6 @@ button:hover {
         height: 100%;
         width: 100%;
         justify-content: center;
-        padding-top: 0.5rem;
     }
 
     .navbar-container {
