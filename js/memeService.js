@@ -8,16 +8,15 @@ var gLineIdx = 0;
 var gMeme = {
     selectedImgId: 5,
     lines: [{
-            txt: 'Your Text Here',
-            size: 40,
-            align: 'center',
-            fillColor: 'white',
-            strokeColor: 'black',
-            posX: 225,
-            posY: 50,
-            isDragging: false
-        }
-    ]
+        txt: 'Your Text Here',
+        size: 40,
+        align: 'center',
+        fillColor: 'white',
+        strokeColor: 'black',
+        posX: 225,
+        posY: 50,
+        isDragging: false
+    }]
 }
 var gText = gMeme.lines[0].txt1
 
@@ -54,12 +53,11 @@ function drawImg(id) {
     }
 }
 
-function currLine(){
+function currLine() {
     var lines = gMeme.lines
     lines.forEach(line => {
-      if (lines[gLineIdx] === line) line.strokeColor = 'red'
-      else line.strokeColor = 'black' 
+        if (lines[gLineIdx] === line) line.strokeColor = 'red'
+        else line.strokeColor = 'black'
     })
     renderCanvas(gImgIdx)
 }
-

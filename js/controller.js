@@ -139,9 +139,9 @@ function renderSaved() {
     var images = loadFromStorage('memes')
     if (gSavedMemes.length > 0) {
         elMemeLib.style.display = 'grid'
-        var strHTML = ``
+        var strHTML = `<div class="options-modal modal"></div>`
         images.forEach(img => {
-            strHTML += `<img class="lib-img" src="${img}"></img>`
+            strHTML += `<img class="lib-img" onclick="renderOptions(this)" src="${img}"></img>`
         })
         elMemeLib.innerHTML = strHTML
     } else {
@@ -176,19 +176,43 @@ function removeLine() {
 
     if (lines.length === 1) return
 
-    if (lines.length === 2){
+    if (lines.length === 2) {
         lines.splice(-1, 1)
         removeRed()
     }
 
-    if (lines.length > 1){
+    if (lines.length > 1) {
         lines.splice(-1, 1)
         renderCanvas(gImgIdx)
     }
 
 }
 
-function closeModal() {
+function closeSavedModal() {
     var elModal = document.querySelector('.saved-modal')
     elModal.style.display = 'none'
+}
+
+function renderOptions(img) {
+    var elOptions = document.querySelector('.options-modal')
+    elOptions.style.display = 'flex'
+    elOptions.innerHTML = `
+    <img class="selected-saved" src="${img.src}"></img>
+    <button class="delete" onclick="deleteSaved('${img.src}')"><i class="far fa-trash-alt"></i></button>
+    <button class="close-options close" onclick="closeOptionsModal()"><i class="fas fa-times"></i></button>
+    `
+}
+
+function deleteSaved(imgSrc) {
+    var imgPos = gSavedMemes.indexOf(imgSrc)
+    gSavedMemes.splice(imgPos, 1)
+    saveToStorage(Key, gSavedMemes)
+    var elOptions = document.querySelector('.options-modal')
+    elOptions.style.display = 'none'
+    renderSaved()
+}
+
+function closeOptionsModal() {
+    var elOptions = document.querySelector('.options-modal')
+    elOptions.style.display = 'none'
 }
