@@ -3,7 +3,7 @@ var gSavedMemes = []
 var gCanvas;
 var gCtx;
 var gImgs = getImgs()
-var gIdx;
+var gImgIdx;
 var gLineIdx = 0;
 var gMeme = {
     selectedImgId: 5,
@@ -60,6 +60,6 @@ function currLine(){
       if (lines[gLineIdx] === line) line.strokeColor = 'red'
       else line.strokeColor = 'black' 
     })
-    renderCanvas(gIdx)
+    renderCanvas(gImgIdx)
 }
 

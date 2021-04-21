@@ -21,8 +21,13 @@
         </div>
 
         <div class="editor-container">
+            <div class="saved-modal">
+                <img class="floppy" src="design/floppy.png">
+                <h1>Your Meme Has Been Saved To Your Meme Gallery</h1>
+                <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            </div>
             <div class="buttons-container">
-                <input type="text" class="text-input" onkeyup="renderUserText()"></input>
+                <input type="text" class="text-input" placeholder="Your Text Here" onkeyup="renderUserText()"></input>
                 <button class="higher" onclick="changePosY('high')"><i class="fas fa-caret-square-up"></i></button>
                 <button class="bigger" onclick="changeSize('big')"><i class="fas fa-search-plus"></i></button>
                 <button class="lower" onclick="changePosY('low')"><i class="fas fa-caret-square-down"></i></button>

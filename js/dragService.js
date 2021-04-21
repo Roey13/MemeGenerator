@@ -58,7 +58,7 @@ function onMove(ev) {
         line.posY += dy
 
         gStartPos = pos
-        renderCanvas(gIdx)
+        renderCanvas(gImgIdx)
     }
 }
 

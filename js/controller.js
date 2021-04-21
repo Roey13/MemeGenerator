@@ -25,7 +25,7 @@ function renderUserText() {
     var elUserText = document.querySelector('.text-input').value;
     gMeme.lines[gLineIdx].txt = elUserText
     drawText()
-    renderCanvas(gIdx)
+    renderCanvas(gImgIdx)
 }
 
 function renderSelectedImg(id) {
@@ -45,9 +45,9 @@ function renderSelectedImg(id) {
     elHomeBtn.style.display = 'inline'
     elEditor.style.display = 'flex'
     elGallery.style.display = 'none'
-    gIdx = id;
-    drawImg(gIdx)
-    renderCanvas(gIdx)
+    gImgIdx = id;
+    drawImg(gImgIdx)
+    renderCanvas(gImgIdx)
 }
 
 function renderGallery() {
@@ -65,24 +65,27 @@ function changePosY(direc) {
     var currLine = gMeme.lines[gLineIdx]
     if (direc === 'high') currLine.posY--
     else currLine.posY++;
-    renderCanvas(gIdx)
+    renderCanvas(gImgIdx)
 }
 
 function changeSize(sizing) {
     var currLine = gMeme.lines[gLineIdx]
     if (sizing === 'big') currLine.size++
     else currLine.size--;
-    renderCanvas(gIdx)
+    renderCanvas(gImgIdx)
 }
 
 function addLine() {
     var lines = gMeme.lines
     var posY
+    var posX
     if (lines.length === 1) {
-        posY = 430
+        posY = 430;
+        posX = 225;
     }
     if (lines.length > 1) {
         posY = 225
+        posX = 225;
     }
     var lines = gMeme.lines
     var line = {
@@ -91,7 +94,8 @@ function addLine() {
         align: 'center',
         fillColor: 'white',
         strokeColor: 'black',
-        posY
+        posY,
+        posX
     }
     lines.push(line)
     currLine()
@@ -112,12 +116,14 @@ function downloadImg(elLink) {
 }
 
 function saveMeme() {
+    var elModal = document.querySelector('.saved-modal')
     removeRed()
     setTimeout(function () {
         var val = gCanvas.toDataURL();
         gSavedMemes.push(val)
         saveToStorage(Key, gSavedMemes), 100
     })
+    elModal.style.display = 'flex'
 }
 
 function renderSaved() {
@@ -162,7 +168,7 @@ function removeRed() {
     lines.forEach(line => {
         line.strokeColor = 'black'
     })
-    renderCanvas(gIdx)
+    renderCanvas(gImgIdx)
 }
 
 function removeLine() {
@@ -177,7 +183,12 @@ function removeLine() {
 
     if (lines.length > 1){
         lines.splice(-1, 1)
-        renderCanvas(gIdx)
+        renderCanvas(gImgIdx)
     }
 
+}
+
+function closeModal() {
+    var elModal = document.querySelector('.saved-modal')
+    elModal.style.display = 'none'
 }
